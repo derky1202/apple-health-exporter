@@ -12,6 +12,16 @@
 > Explore your apple health with Grafana
 
 ![Dashbaord](./docs/dashboard.jpeg)
+
+### update
+- 使用如下命令，可以直接将json文件推送到server，最后到数据库。可以配合shortcut使用
+`curl -X POST "http://192.168.2.21:38001/upload/lin" -H  "accept: application/json" -H  "Content-Type: multipart/form-data" -F "file=@test.json"`
+
+- 也可以配合shortcut使用，比如
+
+`cd ~ && cd Downloads && curl -X POST "http://192.168.2.21:38001/upload/lin" -H "accept: application/json" -H "Content-Type: multipart/form-data" -F "file=@$(ls -t HealthAutoExport-*.json | head -n1)" && rm HealthAutoExport*.json`
+  
+
 ### 🏠 [Homepage](https://github.com/fuergaosi233/apple-health-exporter) | ✨ [Demo](https://grafana-health.y1s1.host/goto/egkRFfmIR?orgId=1)
 
 [![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/template/qZmI-e?referralCode=FaJtD_)
