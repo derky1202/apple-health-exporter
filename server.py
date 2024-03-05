@@ -91,7 +91,7 @@ class RequestData(BaseModel):
 
 
 # 必须以这种格式才能curl成功
-# curl -X POST "http://192.168.2.21:38000/upload/lin" -H  "accept: application/json" -H  "Content-Type: multipart/form-data" -F "file=@/Users/lin/Downloads/HealthAutoExport-2023-07-01-2023-07-08.json"
+# curl -X POST "http://192.168.2.21:38001/upload/lin" -H  "accept: application/json" -H  "Content-Type: multipart/form-data" -F "file=@test.json"
 
 @app.post("/upload/{usr}") # 对应下面的 usr: str 不写就报错
 async def upload_data(usr: str, file: UploadFile = File(...)):
