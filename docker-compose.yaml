@@ -2,14 +2,17 @@ version: "3.8"
 services:
   server:
     build: .
+    container_name: apple-healt-server
     ports:
-      - "8000:8000"
+      - "38001:38001"
     depends_on:
       - db
     env_file:
       - .env
+
   db:
     image: timescale/timescaledb-postgis:latest-pg13
+    container_name: apple-health-db
     volumes:
       - ./data:/var/lib/postgresql/data
     environment:
@@ -17,14 +20,16 @@ services:
       - POSTGRES_USER=postgres
       - POSTGRES_DB=postgres
     ports:
-      - "5432:5432"
+      - "35432:5432"
+
   grafana:
     image: grafana/grafana-enterprise:latest
+    container_name: apple-health-grafana
     ports:
-      - "3000:3000"
+      - "33000:3000"
     depends_on:
       - server
-    volumes:
+    volumes: # chown 472:472 grafana -R
       - ./grafana:/data
     env_file:
       - .env
