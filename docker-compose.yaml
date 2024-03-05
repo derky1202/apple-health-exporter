@@ -2,7 +2,7 @@ version: "3.8"
 services:
   server:
     build: .
-    container_name: apple-healt-server
+    container_name: apple-health-server
     ports:
       - "38001:38001"
     depends_on:
